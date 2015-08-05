@@ -9,12 +9,8 @@
 
 var now = require("performance-now")
 
-
-var TWEEN = TWEEN || ( function () {
-
-  var _tweens = [];
-
-  return {
+var _tweens = [];
+var TWEEN = {
 
     REVISION: '14',
 
@@ -74,8 +70,6 @@ var TWEEN = TWEEN || ( function () {
 
     }
   };
-
-} )();
 
 TWEEN.Tween = function ( object ) {
 
@@ -746,26 +740,6 @@ TWEEN.Interpolation = {
 
 };
 
-// UMD (Universal Module Definition)
-( function ( root ) {
 
-  if ( typeof define === 'function' && define.amd ) {
+module.exports = TWEEN;
 
-    // AMD
-    define( [], function () {
-      return TWEEN;
-    } );
-
-  } else if ( typeof exports === 'object' ) {
-
-    // Node.js
-    module.exports = TWEEN;
-
-  } else {
-
-    // Global variable
-    root.TWEEN = TWEEN;
-
-  }
-
-} )( this );
