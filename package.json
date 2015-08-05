@@ -18,10 +18,10 @@
     }
   ],
   "keywords": [
-    "tween",
-    "interpolation"
+    "interpolation",
+    "tween"
   ],
-  "dependencies": {
+  "devDependencies": {
     "gulp": "^3.8.7",
     "gulp-concat": "^2.3.4",
     "gulp-html-replace": "^1.1.0",
@@ -34,5 +34,8 @@
   "scripts": {
     "test": "node_modules/.bin/nodeunit $(pwd)/test/unit/nodeunitheadless.js"
   },
-  "author": "tween.js contributors (https://github.com/tweenjs/tween.js/graphs/contributors)"
+  "author": "tween.js contributors (https://github.com/tweenjs/tween.js/graphs/contributors)",
+  "dependencies": {
+    "performance-now": "^0.2.0"
+  }
 }
