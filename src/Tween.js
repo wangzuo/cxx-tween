@@ -7,28 +7,8 @@
  * Thank you all, you're awesome!
  */
 
-// performance.now polyfill
-( function ( root ) {
+var now = require("performance-now")
 
-  if ( 'performance' in root === false ) {
-    root.performance = {};
-  }
-
-  // IE 8
-  Date.now = ( Date.now || function () {
-    return new Date().getTime();
-  } );
-
-  if ( 'now' in root.performance === false ) {
-    var offset = root.performance.timing && root.performance.timing.navigationStart ? performance.timing.navigationStart
-      : Date.now();
-
-      root.performance.now = function () {
-        return Date.now() - offset;
-      };
-  }
-
-} )( this );
 
 var TWEEN = TWEEN || ( function () {
 
@@ -74,7 +54,7 @@ var TWEEN = TWEEN || ( function () {
 
       var i = 0;
 
-      time = time !== undefined ? time : window.performance.now();
+      time = time !== undefined ? time : now();
 
       while ( i < _tweens.length ) {
 
@@ -148,7 +128,7 @@ TWEEN.Tween = function ( object ) {
 
     _onStartCallbackFired = false;
 
-    _startTime = time !== undefined ? time : window.performance.now();
+    _startTime = time !== undefined ? time : now();
     _startTime += _delayTime;
 
     for ( var property in _valuesEnd ) {
