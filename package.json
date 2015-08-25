@@ -20,7 +20,7 @@
     "tape": "^4.2.0"
   },
   "scripts": {
-    "test": "nodeunit $(pwd)/test/unit/nodeunitheadless.js"
+    "test": "./node_modules/tape/bin/tape test.js"
   },
   "author": "tween.js contributors (https://github.com/tweenjs/tween.js/graphs/contributors)",
   "dependencies": {
